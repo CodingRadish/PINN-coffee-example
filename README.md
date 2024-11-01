@@ -1,2 +1,3 @@
-# PINN-coffee-example
-An application of a Physics-Informed Neural Network (PINN) on a cooling coffee cup. An example.
+# PINN - A cooling coffee example
+
+An simple implementation of a Physics-Informed Neural Network (PINN) to predict the temperature of a cooling coffee cup.
