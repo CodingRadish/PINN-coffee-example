@@ -1,6 +1,6 @@
 # PINN - coffee example
 
-A simple implementation of a Physics-Informed Neural Network (PINN) to predict the temperature of a cooling coffee cup.
+A simple implementation of a Physics-Informed Neural Network (PINN) to predict the temperature of a cooling coffee cup, based on [[1](#references)].
 
 ## Premise
 
@@ -21,3 +21,7 @@ We include the PDE, the equation presented above, in the loss function of the NN
 <p align="center">
   <img src="figures/PINN.gif" alt="Demo PINN Animation">
 </p>
+
+## References
+
+[1] [Physics-informed Neural Networks: a simple tutorial with PyTorch](https://medium.com/@theo.wolf/physics-informed-neural-networks-a-simple-tutorial-with-pytorch-f28a890b874a)
