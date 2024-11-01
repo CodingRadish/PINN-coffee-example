@@ -21,7 +21,7 @@ class Net(torch.nn.Module):
     def forward(self, x):
         return self.net(x)
 
-    def fit(self, X, y, n_epochs, lr, loss_fn, loss2=None, loss2_weight=0.1):
+    def fit(self, X, y, n_epochs, lr, loss_fn, loss2=None, loss2_weight=0.1, test_set=None):
         # convert to tensors
         X = torch.tensor(X, dtype=torch.float32).reshape(len(X), -1)
         y = torch.tensor(y, dtype=torch.float32).reshape(len(y), -1)
@@ -30,6 +30,7 @@ class Net(torch.nn.Module):
         # train
         self.train()
         losses = []
+        preds = [self.predict(test_set).detach().numpy().flatten()]
         for epoch in range(n_epochs):
             optimizer.zero_grad()
             output = self.forward(X)
@@ -39,9 +40,12 @@ class Net(torch.nn.Module):
             loss.backward()
             optimizer.step()
             losses.append(loss.item())
-            if epoch % 1000 == 0:
+            if epoch % 4000 == 0:
                 print(f'Epoch {epoch}, loss {loss.item()}')
-        return losses
+            if (epoch % 100 == 0 or epoch == n_epochs-1) and test_set is not None:
+                pred = self.predict(test_set).detach().numpy().flatten()
+                preds.append(pred)
+        return losses, preds
     
     def predict(self, X):
         # convert to tensor
