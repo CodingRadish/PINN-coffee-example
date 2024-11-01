@@ -8,13 +8,13 @@ class Net(torch.nn.Module):
         # network
         self.net = torch.nn.Sequential(
             torch.nn.Linear(n_input, n_hidden),
-            torch.nn.ReLU(),
+            torch.nn.Tanh(),
             torch.nn.Linear(n_hidden, n_hidden),
-            torch.nn.ReLU(),
+            torch.nn.Tanh(),
             torch.nn.Linear(n_hidden, n_hidden),
-            torch.nn.ReLU(),
+            torch.nn.Tanh(),
             torch.nn.Linear(n_hidden, n_hidden),
-            torch.nn.ReLU(),
+            torch.nn.Tanh(),
             torch.nn.Linear(n_hidden, n_output),
         )
 
