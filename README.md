@@ -16,7 +16,7 @@ where $T(t)$ is the temperature of the coffee, $T_{env}$ is the temperature of t
 
 ## Physics-Informed Neural Network (PINN)
 
-We include the PDE, the equation presented above, in the loss function of the NN. This works as a regularizer for the network and helps it follow the physics were data is missing as visualized below.
+We include the PDE, the equation presented above, in the loss function of the NN. This works as a regularizer for the network and helps it follow the physics where data is missing as visualized below.
 
 <p align="center">
   <img src="figures/PINN.gif" alt="Demo PINN Animation">
